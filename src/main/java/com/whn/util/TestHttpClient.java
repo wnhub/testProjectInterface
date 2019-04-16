@@ -7,12 +7,16 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * <dependency>
- *      <groupId>org.apache.httpcomponents</groupId>
- *      <artifactId>httpclient</artifactId>
- *      <version>4.5.2</version>
+ * <groupId>org.apache.httpcomponents</groupId>
+ * <artifactId>httpclient</artifactId>
+ * <version>4.5.2</version>
  * </dependency>
  */
 public class TestHttpClient {
@@ -24,6 +28,7 @@ public class TestHttpClient {
         CloseableHttpResponse response = httpClient.execute(httpGet);
         //获取状态吗，判断状态
         int statusCode = response.getStatusLine().getStatusCode();
+
         if (statusCode == 200) {
             org.apache.http.HttpEntity entity = response.getEntity();
             result = EntityUtils.toString(entity, "UTF-8");
